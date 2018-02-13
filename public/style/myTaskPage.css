@@ -1,0 +1,79 @@
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+}
+span{
+    position: absolute;
+}
+.taskLeft{
+    width: 73%;
+    float: left;
+}
+
+.taskTitle{
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+.taskName{
+    width:200px;
+    height: 50px;
+    float: left;
+    font-size: 30px;
+    border-radius: 25px;
+    border: 1px solid #408080;
+    text-align: center;
+}
+.taskIntro{
+    width: 700px;
+    float: left;
+    height: 80px;
+    text-decoration: underline;
+    padding: 10px;
+    margin-left: 15px;
+    border-radius: 25px;
+    border: 1px solid #408080;
+}
+.taskLeft button{
+   margin-top: 5px;
+}
+.processList{
+    width: 80%;
+    height: 55px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.process{
+    width: 70%;
+    height: 50px;
+    background-color: #408080;
+    margin: 0 auto;
+    padding: 10px;
+}
+.process .tag{
+    border-radius: 50px;
+    border: 1px solid;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    float: left;
+}
+.taskRight {
+    width: 27%;
+    float: right;
+}
+.taskRight li{
+    width: 100%;
+    list-style: none;
+    border: 1px solid;
+}
+
+.actors{
+    width: 50%;
+    margin-top: 100px;
+    padding-left: 20px;
+}
