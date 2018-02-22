@@ -1,21 +1,16 @@
-import React,{Component} from 'react';
+import {Router,Route,browserHistory} from 'react-router';
+import React, {Component} from 'react';
 import {render} from 'react-dom';
-import Login from "./component/login";
-import Logup from "./component/logup";
-import Header from "./component/header";
-import MainPart from "./component/mainPart";
-import TaskPage from "./component/taskPage";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
+let store = createStore(reducers);
 
-class Entry extends Component{
-    render(){
-        return(
-            <div>
-                <Header/>
-                <TaskPage/>
-            </div>
-        )
-    }
-
-}
-render(<Entry/>,document.getElementById('login'));
+render(
+    <Provider store={store}>
+       <Router>
+           <Route path="/" component={} />
+       </Router>
+    </Provider>,
+    document.getElementById('login')
+);

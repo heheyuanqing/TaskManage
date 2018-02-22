@@ -1,8 +1,10 @@
 import  React,{Component} from 'react';
-// import {render} from 'react-dom';
 import '../style/login.css';
 class Login extends Component{
  render(){
+
+     const {clickSignIn}=this.props;
+
      return (
          <div className="loginContainer">
              <div className="title">
@@ -23,7 +25,7 @@ class Login extends Component{
                      记住密码
                  </div>
                  <div>
-                     <button>登录</button>
+                     <button onClick={clickSignIn}>登录</button>
                      <button>注册</button>
                  </div>
              </div>

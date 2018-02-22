@@ -2,6 +2,9 @@ import React,{Component} from 'react';
 import '../style/login.css'
 class Logup extends Component{
     render(){
+
+        const {clickSignUp} = this.props;
+
         return(
             <div className="logupContainer">
                 <div className="title">
@@ -21,7 +24,7 @@ class Logup extends Component{
                         <input type="password"/>
                     </div>
                     <div>
-                        <button>注册</button>
+                        <button onClick={clickSignUp}>注册</button>
                     </div>
                 </div>
             </div>

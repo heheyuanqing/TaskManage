@@ -5,19 +5,19 @@ body {
 
 }
 
-.header-part {
+.header{
     width: 100%;
     height: 55px;
     background-color: #0086b3;
 }
 
-span {
+.header span {
     font-size: 25px;
     line-height: 55px;
     margin-left: 20px;
 }
 
-.searchFiled {
+.header .search{
     border-radius: 25px;
     height: 30px;
     width: 400px;
@@ -27,14 +27,14 @@ span {
     margin-top: 10px;
 }
 
-.my {
+.header .my {
     width: 200px;
     height: 50px;
     margin-left: 85%;
     margin-top: -55px;
 }
 
-.my img {
+.header .my img {
     width: 45px;
     height: 45px;
     border-radius: 50px;
@@ -42,7 +42,7 @@ span {
     position: relative;
 }
 
-.my span {
+.header .my span {
     margin-left: 10px;
     line-height: 25px;
     position: absolute;

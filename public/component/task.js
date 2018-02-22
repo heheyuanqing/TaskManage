@@ -2,19 +2,20 @@ import React,{Component} from 'react';
 
 class Task extends Component{
     render(){
+        const {takePartIn}=this.props;
         return(
             <div className="task">
                 <div className="promulgator">
-                    <img src={this.props.infor.avator} alt=""/>
-                    <span>{this.props.infor.promulgator}</span>
-                    <button>加入</button>
+                    <img src='../images/avatar.jpg' alt="创建人头像"/>
+                    <span>{this.props.promulgator}</span>
+                    <button onClick={takePartIn}>加入</button>
                 </div>
                 <div className="introduction">
-                    <p>每天阅读1小时，坚持每日打卡……</p>
+                    <p>{this.props.introduction}</p>
                 </div>
                 <div className="operation">
-                    <span>参与人数： 255</span>
-                    <span>创建时间 2017-01-01</span>
+                    <span>参与人数：{this.props.taskInfor.time}</span>
+                    <span>创建时间{this.props.taskInfor.actorsNumber}</span>
                 </div>
             </div>
         )
