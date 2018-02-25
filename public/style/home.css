@@ -1,4 +1,4 @@
-.mainLeft {
+.homeLeftPart {
     width: 70%;
     background-color: #954121;
     float: left;
@@ -16,51 +16,59 @@
     position: relative;
 }
 
-.introduction {
-    width: 400px;
-    margin-left: 100px;
-    font-size: 20px;
-}
-
 .promulgator img {
     width: 55px;
     height: 55px;
     border-radius: 50px;
     position: relative;
 }
-.promulgator span{
+
+.promulgator span {
     position: absolute;
 }
-.promulgator button{
+
+.promulgator button {
     float: none;
     position: absolute;
     left: 640px;
-    top:-5px;
-    background-color:white;
+    top: -5px;
+    background-color: white;
 }
-.operation{
-   position: absolute;
+
+.introduction {
+    width: 400px;
+    margin-left: 100px;
+    font-size: 20px;
+}
+
+.operation {
+    position: absolute;
     bottom: -5px;
 }
-.operation span{
+
+.operation span {
     font-size: 15px;
     margin-right: 420px;
 }
-.mainRight{
+
+.homeRightPart {
     width: 30%;
     height: 888px;
     background-color: #BB6688;
     float: right;
 }
-.myPart{
+
+.shortcut {
     width: 400px;
     margin-top: 180px;
     margin-left: 90px;
 }
-.creatEntry{
-width: 400px;
+
+.createEntry {
+    width: 400px;
 }
-.plus{
+
+.plus {
     border: 1px solid white;
     border-radius: 50%;
     font-size: 40px;
@@ -69,21 +77,24 @@ width: 400px;
     text-align: center;
     background-color: white;
 }
-.creatEntry span{
+
+.createEntry span {
     position: relative;
     top: -55px;
     left: 60px;
 }
-.myTask a{
+
+.shortcut a {
     text-decoration: none;
     font-size: 25px;
     color: #000;
 }
-.myTask a:hover{
+
+.shortcut a:hover {
     color: #954121;
 }
 
-.myTask li{
+.shortcut li {
     height: 40px;
     background-color: white;
     border: 1px solid;

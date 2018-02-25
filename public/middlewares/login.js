@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-export default state => next => action => {
+export default store => next => action => {
     if (action.type === 'login') {
         console.log(action);
 
@@ -10,9 +10,12 @@ export default state => next => action => {
                 if (err)
                     console.log(err);
                 else{
+                    console.log(res);
+
                     const data = res.text;
                     if(data.state==='SUCESS'&&data.type==='0'){
-                        window.location.href='./'//跳转到主页的组件
+                        //window.location='/home';//跳转到主页的组件
+                        alert('登录成功');
                     }
                     if(data.state==='FAIL'&&data.type==='1') {
                         alert('用户不存在');

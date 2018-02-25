@@ -6,8 +6,7 @@ let connection = mysql.createConnection(
         host: 'localhost',
         user: 'root',
         password: '123456',
-        database: 'ganshaer',
-
+        database: 'ganshaer'
     });
 
 connection.connect((err) => {
@@ -16,8 +15,8 @@ connection.connect((err) => {
         console.log("连接数据库失败！");
         return;
     }
-
-    console.log("连接数据库成功！");
+    else
+        console.log("连接数据库成功！");
 });
 
 module.exports = connection;

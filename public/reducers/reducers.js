@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
-import loginReducer from './login';
+import onlineUsr from './getOnlineUsr';
 
 export default combineReducers({
-    loginReducer
+    onlineUsr,
+
 });

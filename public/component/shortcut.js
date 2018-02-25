@@ -5,14 +5,14 @@ class Shortcut extends Component {
 
         const {unfinishTasks} = this.props;
         return (
-            <div className="myPart">
-                <div className="creatEntry">
+            <div className="shortcut">
+                <div className="createEntry">
                     <div className="plus">+</div>
                     <span>创建任务</span>
                 </div>
                 <div className="myTask">
                     <a href="#">我的任务</a>
-                    <ul className="taskList">
+                    <ul className="mytaskList">
                         {/* <li><a href="">每天阅读</a></li>
                         <li><a href="">每天学习</a></li>
                         <li><a href="">每天写算法</a></li>

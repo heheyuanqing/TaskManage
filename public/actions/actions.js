@@ -28,8 +28,9 @@ export const takePartIn = (actorInfor) => ({
 });
 
 //创建任务
-export const newTask =()=>({
-    type:'createNewTask'
+export const newTask =(taskContent)=>({
+    type:'createNewTask',
+    taskContent
 });
 
 //增加任务的分任务

@@ -28,7 +28,7 @@ span{
     border: 1px solid #408080;
     text-align: center;
 }
-.taskIntro{
+.taskSummary{
     width: 700px;
     float: left;
     height: 80px;
@@ -62,11 +62,11 @@ span{
     background-color: white;
     float: left;
 }
-.taskRight {
+.allTAskActors {
     width: 27%;
     float: right;
 }
-.taskRight li{
+.allTAskActors li{
     width: 100%;
     list-style: none;
     border: 1px solid;

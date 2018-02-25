@@ -19,10 +19,10 @@ class AllTasksList extends Component {
 
         return (
             <div>
-                <div className="mainLeft">
+                <div className="homeLeftPart">
                     {tasksInfor.map((infor)=><Task ket={i} taskInfor={infor}/>)}
                 </div>
-                <div className="mainRight">
+                <div className="homeRightPart">
                     <Shortcut/>
                 </div>
             </div>

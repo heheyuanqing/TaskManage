@@ -3,7 +3,7 @@ export default class Actors extends Component{
     render(){
 
         return(
-            <div className="taskRight">
+            <div className="allTAskActors">
              <ul>
                  <li className="actors">
                      <img src="./images/avatar.jpg" alt=""/>

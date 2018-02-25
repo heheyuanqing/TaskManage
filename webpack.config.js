@@ -1,8 +1,11 @@
+
+const webpack =require('webpack');
+
 module.exports = {
-    entry: "./public/entry.js", // 要打包的入口文件
-    output: {               //打包后的文件
-        path: __dirname + '/public/dist',   //表示使用绝对路径
-       filename: "index.js",//输出文件名
+    entry: "./public/entry.js",
+    output: {                                 //打包后的文件
+        path: __dirname + '/public/dist',
+        filename: "index.js"
     },
     watch: true,
     module: {

@@ -1,10 +1,9 @@
 import {connect} from 'react-redux';
-import MainPart from '../component/mainPart';
-
+import AllTaskList from '../component/allTasksList'
 const mapStateToProps = (state) => {
     return {taskInfor: state.allTasks}
 };
 const mapDispatchToProps=()=>{
     return ;
 };
-export default connect(mapStateToProps,mapDispatchToProps)(MainPart);
+export default connect(mapStateToProps,mapDispatchToProps)(AllTaskList);
