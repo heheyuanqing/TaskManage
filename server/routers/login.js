@@ -3,15 +3,14 @@ const express = require('express');
 const router = express.Router();
 const database = require('../databases/connect');
 const usrData = require('../databases/usrSQL');
-console.log("这是Login文件");
 
 router.post('/signin', (req, res) => {
-    console.log(req);
     const name = req.body.usrInfor.name;
     const psw = req.body.usrInfor.psw;
     let data = [];
 
-    database.query(usrData, name, function (err, result) {
+    database.query(usrData.getPsw,name,function (err, result) {
+       console.log(result);
         if (err) {
             console.log(err);
         }

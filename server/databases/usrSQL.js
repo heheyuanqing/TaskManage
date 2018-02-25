@@ -1,6 +1,5 @@
 const usrSQL = {
-    getName: 'select usrName from usr',
-    getPsw: 'select psw from usr',
+    getPsw: 'select * from usr where usrName=?',
     getEmail: 'select email from usr',
     addUsr:'insert into usr (usrName,email,psw) value (?,?,?)'
 };

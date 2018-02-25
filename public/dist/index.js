@@ -16051,12 +16051,11 @@ exports.default = function (store) {
 
                 _superagent2.default.post('/signin').send(action).end(function (err, res) {
                     if (err) console.log(err);else {
-                        console.log(res);
-
-                        var data = res.text;
+                        var data = JSON.parse(res.text);
+                        console.log(data);
                         if (data.state === 'SUCESS' && data.type === '0') {
-                            //window.location='/home';//跳转到主页的组件
-                            alert('登录成功');
+                            window.location = '/home'; //跳转到主页的组件
+                            console.log('登录成功');
                         }
                         if (data.state === 'FAIL' && data.type === '1') {
                             alert('用户不存在');
