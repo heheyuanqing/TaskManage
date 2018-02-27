@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
-import MyPart from '../component/myPart';
+import Shortcut from '../component/shortcut';
 import showMyRecentTasks from '../actions/actions';
 
-const mapStateToProps = (state)=>{
-    return {
-        unfinished:state.usr
-    };
-};
+const mapStateToProps = (state) => {
 
-const mapDispatchToProps=()=>{
+    return {myRecentTasks: state.onlineUsr}
 
 };
+
+const mapDispatchToProps = () => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shortcut);

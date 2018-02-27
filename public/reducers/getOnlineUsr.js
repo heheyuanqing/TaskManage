@@ -1,8 +1,9 @@
 //登录时获取登录用户信息
-
-export default (state={online:{}},action)=>{
+'use strict';
+export default (state={onlineUsr:{}},action)=>{
     if (action.type === 'login'){
-        const online = state.online;
+       console.log(action);
+        const online = state.onlineUsr;
         return {online:action.usrInfor}
     }
     return state;

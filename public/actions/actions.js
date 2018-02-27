@@ -10,9 +10,16 @@ export const signUp = (newUsr) => ({
     newUsr
 });
 
+//关键词搜索相关任务
+export const searchTasks = (keyWord)=>({
+    type:'searchTasks',
+    keyWord
+});
+
 //主页显示最新的任务项
-export const showNewestTask = () => ({
-    type: 'showNewestTasks'
+export const showNewestTask = (tasks) => ({
+    type: 'showNewestTasks',
+    tasks
 });
 
 //在主页中显示自己未完成的任务

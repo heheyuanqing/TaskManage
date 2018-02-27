@@ -4734,10 +4734,19 @@ var signUp = exports.signUp = function signUp(newUsr) {
     };
 };
 
-//主页显示最新的任务项
-var showNewestTask = exports.showNewestTask = function showNewestTask() {
+//关键词搜索相关任务
+var searchTasks = exports.searchTasks = function searchTasks(keyWord) {
     return {
-        type: 'showNewestTasks'
+        type: 'searchTasks',
+        keyWord: keyWord
+    };
+};
+
+//主页显示最新的任务项
+var showNewestTask = exports.showNewestTask = function showNewestTask(tasks) {
+    return {
+        type: 'showNewestTasks',
+        tasks: tasks
     };
 };
 
@@ -17047,11 +17056,15 @@ var _getOnlineUsr = __webpack_require__(117);
 
 var _getOnlineUsr2 = _interopRequireDefault(_getOnlineUsr);
 
+var _getAllTasks = __webpack_require__(139);
+
+var _getAllTasks2 = _interopRequireDefault(_getAllTasks);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-    onlineUsr: _getOnlineUsr2.default
-
+    onlineUsr: _getOnlineUsr2.default,
+    allTasks: _getAllTasks2.default
 });
 
 /***/ }),
@@ -17059,20 +17072,20 @@ exports.default = (0, _redux.combineReducers)({
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+//登录时获取登录用户信息
 
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-//登录时获取登录用户信息
-
 exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { online: {} };
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { onlineUsr: {} };
     var action = arguments[1];
 
     if (action.type === 'login') {
-        var online = state.online;
+        console.log(action);
+        var online = state.onlineUsr;
         return { online: action.usrInfor };
     }
     return state;
@@ -17105,7 +17118,7 @@ exports.default = function (store) {
                         var data = JSON.parse(res.text);
                         console.log(data);
                         if (data.state === 'SUCESS' && data.type === '0') {
-                            window.location.href = '/home'; //跳转到主页的组件
+                            //window.location.href = '/home';//跳转到主页的组件
                             console.log('登录成功');
                         }
                         if (data.state === 'FAIL' && data.type === '1') {
@@ -18283,6 +18296,40 @@ exports.default = function (store) {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _superagent = __webpack_require__(48);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (store) {
+    return function (next) {
+        return function (action) {
+
+            //请求获取所有的任务基本信息
+            if (action.type === 'showNewestTasks') {
+                _superagent2.default.get('/home').end(function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        var data = JSON.parse(res.text);
+                        if (data.state === 'SUCESS') {
+                            action.tasks = data.allTasks;
+                        }
+                        if (data.state === 'FAIL') {
+                            action.tasks = '';
+                        }
+                    }
+                });
+            }
+        };
+    };
+};
+
 /***/ }),
 /* 126 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19157,19 +19204,22 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(13);
 
-var _allTasksList = __webpack_require__(135);
+var _homePage = __webpack_require__(140);
 
-var _allTasksList2 = _interopRequireDefault(_allTasksList);
+var _homePage2 = _interopRequireDefault(_homePage);
+
+var _actions = __webpack_require__(52);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-    return { taskInfor: state.allTasks };
+    return state.allTasks ? { allTasks: state.allTasks } : { allTasks: {} };
 };
-var mapDispatchToProps = function mapDispatchToProps() {
-    return;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
 };
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_allTasksList2.default);
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_homePage2.default);
 
 /***/ }),
 /* 135 */
@@ -19215,30 +19265,17 @@ var AllTasksList = function (_Component) {
 
     _createClass(AllTasksList, [{
         key: "render",
-
-        /* constructor(){
-             super();
-             this.state={
-                 promulgator: "heheyuanqing",
-                 avator: "./images/avatar.jpg",
-                 introduction: "每天阅读1小时，坚持每日打卡……",
-                 number: "255",
-                 time: "2017-01-02"
-             };
-         }*/
-
         value: function render() {
-            var tasksInfor = this.props.tasksInfor;
-
+            var tasks = this.props.allTasks;
             return _react2.default.createElement(
                 "div",
                 null,
                 _react2.default.createElement(
                     "div",
                     { className: "homeLeftPart" },
-                    tasksInfor.map(function (infor) {
-                        return _react2.default.createElement(_task2.default, { ket: i, taskInfor: infor });
-                    })
+                    tasks.length <= 0 ? tasks.map(function (task) {
+                        return _react2.default.createElement(_task2.default, { key: i, taskInfor: task });
+                    }) : "没有任务"
                 ),
                 _react2.default.createElement(
                     "div",
@@ -19303,7 +19340,7 @@ var Task = function (_Component) {
                     _react2.default.createElement(
                         "span",
                         null,
-                        this.props.promulgator
+                        this.props.taskInfor.promulgator
                     ),
                     _react2.default.createElement(
                         "button",
@@ -19317,7 +19354,7 @@ var Task = function (_Component) {
                     _react2.default.createElement(
                         "p",
                         null,
-                        this.props.introduction
+                        this.props.taskInfor.introduction
                     )
                 ),
                 _react2.default.createElement(
@@ -19382,8 +19419,9 @@ var Shortcut = function (_Component) {
     _createClass(Shortcut, [{
         key: "render",
         value: function render() {
-            var unfinishTasks = this.props.unfinishTasks;
+            var myRecentTasks = this.props.myRecentTasks;
 
+            console.log(myRecentTasks);
             return _react2.default.createElement(
                 "div",
                 { className: "shortcut" },
@@ -19412,13 +19450,17 @@ var Shortcut = function (_Component) {
                     _react2.default.createElement(
                         "ul",
                         { className: "mytaskList" },
-                        myRecentTasks.map(function (task) {
+                        myRecentTasks ? myRecentTasks.map(function (task) {
                             _react2.default.createElement(
                                 "li",
                                 null,
-                                task.introduction
+                                _react2.default.createElement(
+                                    "a",
+                                    null,
+                                    task.introduction
+                                )
                             );
-                        })
+                        }) : "没有加入任务"
                     )
                 )
             );
@@ -19435,6 +19477,300 @@ exports.default = Shortcut;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+//获取所有任务信息
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { allTasks: [] };
+    var action = arguments[1];
+
+    if (action.type === 'showNewestTasks') {
+        var allTasks = state.allTasks;
+        return { allTasks: action.tasks };
+    }
+    if (action.type === 'createNewTask') {
+        return Object.assign({}, state.allTasks, action.taskContent);
+    }
+    return state;
+};
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _header = __webpack_require__(141);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _allTasksList = __webpack_require__(135);
+
+var _allTasksList2 = _interopRequireDefault(_allTasksList);
+
+__webpack_require__(144);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomePage = function (_Component) {
+    _inherits(HomePage, _Component);
+
+    function HomePage() {
+        _classCallCheck(this, HomePage);
+
+        return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).apply(this, arguments));
+    }
+
+    _createClass(HomePage, [{
+        key: "render",
+        value: function render() {
+            var allTasks = this.props.allTasks;
+
+            console.log(allTasks);
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(_header2.default, null),
+                _react2.default.createElement(_allTasksList2.default, { allTasks: allTasks })
+            );
+        }
+    }]);
+
+    return HomePage;
+}(_react.Component);
+
+exports.default = HomePage;
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(142);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_Component) {
+    _inherits(Header, _Component);
+
+    function Header() {
+        _classCallCheck(this, Header);
+
+        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    }
+
+    _createClass(Header, [{
+        key: 'render',
+        value: function render() {
+            var clickSearch = this.props.clickSearch;
+
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'header' },
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    '\u5E72\u5565\u513F'
+                ),
+                _react2.default.createElement('input', { type: 'text', className: 'search', placeholder: "输入任务关键字/创建人" }),
+                _react2.default.createElement(
+                    'button',
+                    { onClick: clickSearch },
+                    '\u641C\u7D22'
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'my' },
+                    _react2.default.createElement('img', { src: './images/avatar.jpg', className: 'myAvatar' }),
+                    _react2.default.createElement(
+                        'span',
+                        null,
+                        'heheyuanqing'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Header;
+}(_react.Component);
+
+exports.default = Header;
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(143);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(130)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../node_modules/css-loader/index.js!./header.css", function() {
+		var newContent = require("!!../../node_modules/css-loader/index.js!./header.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(129)(false);
+// imports
+
+
+// module
+exports.push([module.i, "body {\n    padding: 0;\n    margin: 0;\n    background-color: white;\n\n}\n\n.header{\n    width: 100%;\n    height: 55px;\n    background-color: #0086b3;\n}\n\n.header span {\n    font-size: 25px;\n    line-height: 55px;\n    margin-left: 20px;\n}\n\n.header .search{\n    border-radius: 25px;\n    height: 30px;\n    width: 400px;\n    border-style: none;\n    margin-left: 30%;\n    padding-left: 10px;\n    margin-top: 10px;\n}\n\n.header .my {\n    width: 200px;\n    height: 50px;\n    margin-left: 85%;\n    margin-top: -55px;\n}\n\n.header .my img {\n    width: 45px;\n    height: 45px;\n    border-radius: 50px;\n    margin-top: 18px;\n    position: relative;\n}\n\n.header .my span {\n    margin-left: 10px;\n    line-height: 25px;\n    position: absolute;\n    top: 10px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(145);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(130)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../node_modules/css-loader/index.js!./home.css", function() {
+		var newContent = require("!!../../node_modules/css-loader/index.js!./home.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(129)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".homeLeftPart {\n    width: 70%;\n    background-color: #954121;\n    float: left;\n    overflow: hidden;\n}\n\n.task {\n    width: 750px;\n    height: 200px;\n    background-color: #BB6688;\n    margin: 0 auto;\n    margin-top: 65px;\n    overflow: hidden;\n    padding: 20px;\n    position: relative;\n}\n\n.promulgator img {\n    width: 55px;\n    height: 55px;\n    border-radius: 50px;\n    position: relative;\n}\n\n.promulgator span {\n    position: absolute;\n}\n\n.promulgator button {\n    float: none;\n    position: absolute;\n    left: 640px;\n    top: -5px;\n    background-color: white;\n}\n\n.introduction {\n    width: 400px;\n    margin-left: 100px;\n    font-size: 20px;\n}\n\n.operation {\n    position: absolute;\n    bottom: -5px;\n}\n\n.operation span {\n    font-size: 15px;\n    margin-right: 420px;\n}\n\n.homeRightPart {\n    width: 30%;\n    height: 888px;\n    background-color: #BB6688;\n    float: right;\n}\n\n.shortcut {\n    width: 400px;\n    margin-top: 180px;\n    margin-left: 90px;\n}\n\n.createEntry {\n    width: 400px;\n}\n\n.plus {\n    border: 1px solid white;\n    border-radius: 50%;\n    font-size: 40px;\n    width: 50px;\n    height: 50px;\n    text-align: center;\n    background-color: white;\n}\n\n.createEntry span {\n    position: relative;\n    top: -55px;\n    left: 60px;\n}\n\n.shortcut a {\n    text-decoration: none;\n    font-size: 25px;\n    color: #000;\n}\n\n.shortcut a:hover {\n    color: #954121;\n}\n\n.shortcut li {\n    height: 40px;\n    background-color: white;\n    border: 1px solid;\n    padding: 5px;\n    list-style: none;\n}", ""]);
+
+// exports
 
 
 /***/ })

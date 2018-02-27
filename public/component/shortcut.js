@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 class Shortcut extends Component {
     render() {
 
-        const {unfinishTasks} = this.props;
+        const {myRecentTasks} = this.props;
+        console.log(myRecentTasks);
         return (
             <div className="shortcut">
                 <div className="createEntry">
@@ -13,11 +14,7 @@ class Shortcut extends Component {
                 <div className="myTask">
                     <a href="#">我的任务</a>
                     <ul className="mytaskList">
-                        {/* <li><a href="">每天阅读</a></li>
-                        <li><a href="">每天学习</a></li>
-                        <li><a href="">每天写算法</a></li>
-                        <li><a href="">每天加油</a></li>*/}
-                        {myRecentTasks.map((task) => {<li>{task.introduction}</li>})}
+                        {myRecentTasks?myRecentTasks.map((task) => {<li><a>{task.introduction}</a></li>}):"没有加入任务"}
                     </ul>
                 </div>
             </div>

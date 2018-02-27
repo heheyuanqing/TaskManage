@@ -5,10 +5,13 @@ import '../style/home.css';
 
 class HomePage extends Component{
     render(){
+
+        const {allTasks} = this.props;
+        console.log(allTasks);
         return(
             <div>
                 <Header/>
-                <AllTasksList/>
+                <AllTasksList allTasks={allTasks}/>
             </div>
         )
     }

@@ -2,25 +2,16 @@ import React, {Component} from 'react';
 import Task from "./task";
 import Shortcut from "./shortcut";
 
+
+
 class AllTasksList extends Component {
-   /* constructor(){
-        super();
-        this.state={
-            promulgator: "heheyuanqing",
-            avator: "./images/avatar.jpg",
-            introduction: "每天阅读1小时，坚持每日打卡……",
-            number: "255",
-            time: "2017-01-02"
-        };
-    }*/
 
     render() {
-        const tasksInfor =this.props.tasksInfor;
-
+        const tasks = this.props.allTasks;
         return (
             <div>
                 <div className="homeLeftPart">
-                    {tasksInfor.map((infor)=><Task ket={i} taskInfor={infor}/>)}
+                    {tasks.length<=0?tasks.map((task)=><Task key={i} taskInfor={task}/>):"没有任务"}
                 </div>
                 <div className="homeRightPart">
                     <Shortcut/>

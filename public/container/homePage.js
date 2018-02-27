@@ -1,9 +1,12 @@
 import {connect} from 'react-redux';
-import AllTaskList from '../component/allTasksList'
+import HomePage from '../component/homePage';
+import {showNewestTask} from "../actions/actions";
+
 const mapStateToProps = (state) => {
-    return {taskInfor: state.allTasks}
+    return state.allTasks?{allTasks: state.allTasks}:{allTasks:{}}
 };
-const mapDispatchToProps=()=>{
-    return ;
-};
-export default connect(mapStateToProps,mapDispatchToProps)(AllTaskList);
+const mapDispatchToProps=(dispatch)=>({
+
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomePage);

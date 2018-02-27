@@ -8,7 +8,6 @@ router.post('/signin', (req, res) => {
     const name = req.body.usrInfor.name;
     const psw = req.body.usrInfor.psw;
     let data = [];
-
     database.query(usrData.getUsrInfor,name,function (err, result) {
        console.log(result);
         if (err) {
