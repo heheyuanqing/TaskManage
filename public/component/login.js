@@ -1,10 +1,11 @@
 import  React,{Component} from 'react';
 import '../style/login.css';
+import login from "../container/login";
 
 class Login extends Component{
  render(){
 
-     const {clickSignIn}=this.props;
+     const {clickSignIn,clickSignUp}=this.props;
 
      return (
          <div className="loginContainer">
@@ -27,7 +28,7 @@ class Login extends Component{
                  </div>
                  <div>
                      <button onClick={clickSignIn}>登录</button>
-                     <button>注册</button>
+                     <button onClick={clickSignUp}>注册</button>
                  </div>
              </div>
          </div>

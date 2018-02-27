@@ -1,4 +1,3 @@
-import {browserHistory} from 'react-router';
 import {BrowserRouter,Route} from 'react-router-dom';
 import React from 'react';
 import {render} from 'react-dom';
@@ -19,19 +18,19 @@ import Home from '../public/container/homePage';
 import ActorTaskPage from '../public/container/actorTaskPage';
 
 //创建store
-const createMiddlewareStore=applyMiddleware(middlewareLogin)(createStore);
+const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup)(createStore);
 let store = createMiddlewareStore(reducers);
 
 
 //设置路由
 render(
     <Provider store={store}>
-        <BrowserRouter history={browserHistory}>
+        <BrowserRouter>
             <div>
-                <Route path='/' component={Login}/>
-                <Route path='/logup' component={Logup}/>
+                <Route exact path='/' component={Login}/>
+                <Route path='/signin' component={Login}/>
+                <Route path='/signup' component={Logup}/>
                 <Route path='/home' component={Home}/>
-                {/*<Route path='/actorTaskPage' component={ActorTaskPage}/>*/}
             </div>
         </BrowserRouter>
 

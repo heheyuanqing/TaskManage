@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import '../style/login.css'
 class Logup extends Component{
     render(){
 
-        const {clickSignUp} = this.props;
+        const {clickLogUp} = this.props;
 
         return(
             <div className="logupContainer">
@@ -24,11 +25,16 @@ class Logup extends Component{
                         <input type="password"/>
                     </div>
                     <div>
-                        <button onClick={clickSignUp}>注册</button>
+                        {/*<input type="button" value="注册"  onClick={clickLogUp}/>*/}
+                        <button onClick={clickLogUp}>注册</button>
                     </div>
                 </div>
             </div>
         )
     }
+
 }
+Logup.propTypes={
+    clickLogUp:PropTypes.func.isRequired
+};
 export default Logup;

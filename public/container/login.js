@@ -8,14 +8,19 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 
-    clickSignIn: () => {
+    clickSignIn: (e) => {
+        e.stopPropagation();
         const loginUsr = document.getElementsByTagName('input');
         const usrInfor = {
             name: loginUsr[0].value,
             psw: loginUsr[1].value
         };
         dispatch(signIn(usrInfor));
-
+    },
+    clickSignUp: (e) => {
+        e.stopPropagation();
+        dispatch({type:'createNewUsr'});
     }
+
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

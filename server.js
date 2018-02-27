@@ -9,13 +9,13 @@ const Store = require('express-mysql-session');
 const app = new express();
 
 const login = require('./server/routers/login');
+const logup = require('./server/routers/logup');
 
 const db={
     host:'localhost',
     user:'root',
     password:'123456',
     database:'ganshaer',
-    // port:3306
 };
 
 app.use(cookieParser());
@@ -40,6 +40,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/public'));
 
 app.use('/',login);
+app.use('/',logup);
 
 app.get('*',function (req,res) {
     res.sendFile(path.resolve(__dirname,'public','root.html'));
