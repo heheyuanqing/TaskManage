@@ -11,7 +11,7 @@ class Header extends Component{
                 <button onClick={clickSearch}>搜索</button>
                 <div className="my">
                     <img src="./images/avatar.jpg" className="myAvatar"/>
-                    <span>heheyuanqing</span>
+                    <span>{this.props.usr.name}</span>
                 </div>
             </div>
         )

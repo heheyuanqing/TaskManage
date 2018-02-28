@@ -79,6 +79,7 @@
 }
 
 .createEntry span {
+    font-size: 30px;
     position: relative;
     top: -55px;
     left: 60px;

@@ -7,7 +7,7 @@ const usrData = require('../databases/usrSQL');
 router.post('/signin', (req, res) => {
     const name = req.body.usrInfor.name;
     const psw = req.body.usrInfor.psw;
-    let data = [];
+    let data = {};
     database.query(usrData.getUsrInfor,name,function (err, result) {
        console.log(result);
         if (err) {
@@ -18,7 +18,11 @@ router.post('/signin', (req, res) => {
             res.json({state: 'FAIL', type: '1'});
         }
         else if (result[0].psw === psw) {
+            data.name = name;
+            data.psw=psw;
+            req.session.onlineUsr=data;
             console.log('密码匹配成功！');
+            res.setHeader("token",name);
             res.json({state: 'SUCESS', type: '0'});
         }
         else {
@@ -27,6 +31,16 @@ router.post('/signin', (req, res) => {
         }
 
     });
+});
+
+router.get('/destroySession',(req,res)=>{
+   if(req.session.onlineUsr!==undefined){
+       console.log("清除session");
+       req.session.destroy();
+   }
+   else{
+       console.log("不存在session");
+   }
 });
 
 module.exports = router;

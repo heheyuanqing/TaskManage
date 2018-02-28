@@ -3,10 +3,13 @@ import HomePage from '../component/homePage';
 import {showNewestTask} from "../actions/actions";
 
 const mapStateToProps = (state) => {
-    return state.allTasks?{allTasks: state.allTasks}:{allTasks:{}}
+
+    return {
+        online: state.onlineUsr,
+        allTasks: state.allTasks
+    }
+    // return state.allTasks?{allTasks: state.allTasks}:{allTasks:{}}
 };
-const mapDispatchToProps=(dispatch)=>({
+const mapDispatchToProps = (dispatch) => ({});
 
-});
-
-export default connect(mapStateToProps,mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

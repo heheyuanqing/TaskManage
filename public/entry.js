@@ -1,7 +1,7 @@
 import {BrowserRouter,Route} from 'react-router-dom';
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore,applyMiddleware} from 'redux';
+import {createStore,applyMiddleware,compose} from 'redux';
 import {Provider} from 'react-redux';
 import reducers from './reducers/reducers';
 
@@ -18,9 +18,20 @@ import Home from '../public/container/homePage';
 import ActorTaskPage from '../public/container/actorTaskPage';
 
 //创建store
-const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup)(createStore);
-let store = createMiddlewareStore(reducers);
-
+let store;
+/*const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup)(createStore);
+let store = createMiddlewareStore(reducers);*/
+if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
+    store = createStore(
+       reducers,
+        applyMiddleware(middlewareLogin,middlewareLogup)
+    );
+}else{
+    store = createStore(
+     reducers,
+        compose(applyMiddleware(middlewareLogin,middlewareLogup),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+    );
+}
 
 //设置路由
 render(

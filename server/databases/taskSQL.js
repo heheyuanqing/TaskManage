@@ -1,4 +1,5 @@
 const taskSQL = {
-    getAllTasks: 'select * from allTasks'
+    getAllTasks: 'select * from allTasks',
+    addTask:'insert into allTasks (taskName,promugator,introduction,establishTime) values (?,?,?,?)'
 };
-module.export = taskSQL;
+module.exports = taskSQL;

@@ -2,8 +2,11 @@ import request from 'superagent';
 
 export default store=>next=>action=>{
 
-    //请求获取所有的任务基本信息
-    if(action.type === 'showNewestTasks'){
+ /* 1.获取当前用户的的登录信息
+    2.获取数据库内所有的任务信息
+    3.获取当前用户参加的任务信息
+ */
+
         request.get('/home')
             .end((err,res)=>{
                 if (err){
@@ -12,13 +15,12 @@ export default store=>next=>action=>{
                 else {
                     const data = JSON.parse(res.text);
                     if(data.state === 'SUCESS'){
-                       action.tasks=data.allTasks;
+                      next({type:'showHome',infor:data.all});
                     }
                     if(data.state === 'FAIL'){
-                      action.tasks='';
+                     alert("请先登录账号！");
+                     window.location.href='/signin';
                     }
                 }
             })
-    }
-
 }
