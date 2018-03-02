@@ -1,12 +1,10 @@
 //获取所有任务信息
 
-export default (state={allTasks:[]},action)=>{
-    if(action.type === 'showNewestTasks'){
-       const allTasks = state.allTasks;
-        return {allTasks:action.tasks};
+export default (state = {allTasks: []}, action) => {
+    if (action.type === 'showHome') {
+        const allTasks = action.allTasks.tasks;
+        return Object.assign({}, state.allTasks, allTasks)
     }
-    if (action.type === 'createNewTask'){
-        return (Object.assign({},state.allTasks,action.taskContent));
-    }
+
     return state;
 }

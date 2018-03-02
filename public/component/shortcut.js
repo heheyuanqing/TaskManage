@@ -4,7 +4,7 @@ class Shortcut extends Component {
     render() {
 
         const {myRecentTasks} = this.props;
-        console.log(myRecentTasks);
+
         return (
             <div className="shortcut">
                 <div className="createEntry">

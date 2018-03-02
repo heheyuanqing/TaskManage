@@ -9,11 +9,11 @@ export default store => next => action => {
                 if (err)
                     console.log(err);
                 else {
-                    console.log(res);
+                    // console.log(res);
                     const data = JSON.parse(res.text);
                     console.log(data);
                     if (data.state === 'SUCESS' && data.type === '0') {
-                       // window.location.href = '/home';//跳转到主页的组件
+                       window.location.href = '/home';//跳转到主页的组件
                         console.log('登录成功');
                     }
                     if (data.state === 'FAIL' && data.type === '1') {

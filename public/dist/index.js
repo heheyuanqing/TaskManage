@@ -3197,56 +3197,11 @@ var searchTasks = exports.searchTasks = function searchTasks(keyWord) {
     };
 };
 
-//主页显示最新的任务项
-var showNewestTask = exports.showNewestTask = function showNewestTask(tasks) {
+//显示首页
+var showHome = exports.showHome = function showHome(allTask) {
     return {
-        type: 'showNewestTasks',
-        tasks: tasks
-    };
-};
-
-//在主页中显示自己未完成的任务
-var showUnfinishTasks = exports.showUnfinishTasks = function showUnfinishTasks(taskName) {
-    return {
-        type: 'showUnfinishTasks',
-        taskName: taskName
-    };
-};
-
-//参加任务
-var takePartIn = exports.takePartIn = function takePartIn(actorInfor) {
-    return {
-        type: 'takePartInTask',
-        actorInfor: actorInfor
-    };
-};
-
-//创建任务
-var newTask = exports.newTask = function newTask(taskContent) {
-    return {
-        type: 'createNewTask',
-        taskContent: taskContent
-    };
-};
-
-//增加任务的分任务
-var partTask = exports.partTask = function partTask() {
-    return {
-        type: 'addPartTask'
-    };
-};
-
-//提交任务进度
-var taskProcess = exports.taskProcess = function taskProcess() {
-    return {
-        type: 'changeTaskProcess'
-    };
-};
-
-//退出任务
-var exitTask = exports.exitTask = function exitTask() {
-    return {
-        type: 'exitTask'
+        type: 'showHome',
+        allTasks: allTasks
     };
 };
 
@@ -5323,15 +5278,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 //引入中间件文件
-var store = void 0;
-/*const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup)(createStore);
-let store = createMiddlewareStore(reducers);*/
-if (!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)) {
-    store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_login2.default, _logup2.default));
-} else {
-    store = (0, _redux.createStore)(_reducers2.default, (0, _redux.compose)((0, _redux.applyMiddleware)(_login2.default, _logup2.default), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+var createMiddlewareStore = (0, _redux.applyMiddleware)(_login2.default, _logup2.default, _homePage2.default)(_redux.createStore);
+var store = createMiddlewareStore(_reducers2.default);
+/*let store;
+
+if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
+    store = createStore(
+       reducers,
+        applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)
     );
-}
+}else{
+    store = createStore(
+     reducers,
+        compose(applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+    );
+}*/
 
 //设置路由
 (0, _reactDom.render)(_react2.default.createElement(
@@ -17554,11 +17515,10 @@ exports.default = function () {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { onlineUsr: {} };
     var action = arguments[1];
 
-    if (action.type === 'getOnlineUsr') {
-        var online = state.onlineUsr;
+    if (action.type === 'getOnlineUsr' || action.type === 'showHome') {
         console.log(action);
-        // return {online:action.usrInfor}
-        return Object.assign({}, state.onlineUsr, action.usrInfor);
+        var online = action.usrInfor.name || action.allTasks.usr;
+        return Object.assign({}, state.onlineUsr, online);
     }
     return state;
 };
@@ -17580,13 +17540,11 @@ exports.default = function () {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { allTasks: [] };
     var action = arguments[1];
 
-    if (action.type === 'showNewestTasks') {
-        var allTasks = state.allTasks;
-        return { allTasks: action.tasks };
+    if (action.type === 'showHome') {
+        var allTasks = action.allTasks.tasks;
+        return Object.assign({}, state.allTasks, allTasks);
     }
-    if (action.type === 'createNewTask') {
-        return Object.assign({}, state.allTasks, action.taskContent);
-    }
+
     return state;
 };
 
@@ -17614,11 +17572,11 @@ exports.default = function (store) {
                 console.log(action);
                 _superagent2.default.post('/signin').send(action).end(function (err, res) {
                     if (err) console.log(err);else {
-                        console.log(res);
+                        // console.log(res);
                         var data = JSON.parse(res.text);
                         console.log(data);
                         if (data.state === 'SUCESS' && data.type === '0') {
-                            // window.location.href = '/home';//跳转到主页的组件
+                            window.location.href = '/home'; //跳转到主页的组件
                             console.log('登录成功');
                         }
                         if (data.state === 'FAIL' && data.type === '1') {
@@ -18771,7 +18729,7 @@ exports.default = function (store) {
                         console.log(err);
                     } else {
                         var data = JSON.parse(res.text);
-                        console.log(data);
+                        // console.log(data);
                         if (data.state === 'SUCESS' && data.type === '0') {
                             alert('注册成功！');
                             window.location.href = '/signin';
@@ -18814,21 +18772,22 @@ exports.default = function (store) {
                2.获取数据库内所有的任务信息
                3.获取当前用户参加的任务信息
             */
-
-            _superagent2.default.get('/home').end(function (err, res) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    var data = JSON.parse(res.text);
-                    if (data.state === 'SUCESS') {
-                        next({ type: 'showHome', infor: data.all });
+            if (action.type === 'homeRequest') {
+                _superagent2.default.get('/home').end(function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        var data = JSON.parse(res.text);
+                        if (data.state === 'SUCESS') {
+                            sessionStorage.setItem("name", data.all.usr);
+                            next({ type: 'showHome', infor: data.all });
+                        } else if (data.state === 'FAIL') {
+                            alert("请先登录账号！");
+                            window.location.href = '/signin';
+                        }
                     }
-                    if (data.state === 'FAIL') {
-                        alert("请先登录账号！");
-                        window.location.href = '/signin';
-                    }
-                }
-            });
+                });
+            }
         };
     };
 };
@@ -19260,7 +19219,11 @@ var mapStateToProps = function mapStateToProps(state) {
     };
 };
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {};
+    return {
+        getInfor: function getInfor() {
+            dispatch({ type: 'homeRequest' });
+        }
+    };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_homePage2.default);
@@ -19311,12 +19274,18 @@ var HomePage = function (_Component) {
 
     _createClass(HomePage, [{
         key: "render",
+
+
+        /* componentDidMount() {
+             this.props.getInfor();
+         }
+        */
         value: function render() {
             var _props = this.props,
                 online = _props.online,
                 allTasks = _props.allTasks;
 
-            console.log(this.props);
+
             return _react2.default.createElement(
                 "div",
                 null,
@@ -19524,7 +19493,7 @@ var AllTasksList = function (_Component) {
                     { className: "homeLeftPart" },
                     tasks.length <= 0 ? tasks.map(function (task) {
                         return _react2.default.createElement(_task2.default, { key: i, taskInfor: task });
-                    }) : "没有任务"
+                    }) : ""
                 ),
                 _react2.default.createElement(
                     "div",
@@ -19612,14 +19581,13 @@ var Task = function (_Component) {
                     _react2.default.createElement(
                         "span",
                         null,
-                        "\u53C2\u4E0E\u4EBA\u6570\uFF1A",
-                        this.props.taskInfor.time
+                        "\u53C2\u4E0E\u4EBA\u6570\uFF1A5"
                     ),
                     _react2.default.createElement(
                         "span",
                         null,
                         "\u521B\u5EFA\u65F6\u95F4",
-                        this.props.taskInfor.actorsNumber
+                        this.props.taskInfor.establishTime
                     )
                 )
             );
@@ -19670,7 +19638,7 @@ var Shortcut = function (_Component) {
         value: function render() {
             var myRecentTasks = this.props.myRecentTasks;
 
-            console.log(myRecentTasks);
+
             return _react2.default.createElement(
                 "div",
                 { className: "shortcut" },

@@ -4,9 +4,14 @@ import AllTasksList from "./allTasksList";
 import '../style/home.css';
 
 class HomePage extends Component {
+
+   /* componentDidMount() {
+        this.props.getInfor();
+    }
+*/
     render() {
-        const {online,allTasks} = this.props;
-        console.log(this.props);
+        const {online, allTasks} = this.props;
+
         return (
             <div>
                 <Header usr={online}/>

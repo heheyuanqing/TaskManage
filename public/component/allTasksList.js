@@ -11,7 +11,7 @@ class AllTasksList extends Component {
         return (
             <div>
                 <div className="homeLeftPart">
-                    {tasks.length<=0?tasks.map((task)=><Task key={i} taskInfor={task}/>):"没有任务"}
+                    {tasks.length<=0?tasks.map((task)=><Task key={i} taskInfor={task}/>):""}
                 </div>
                 <div className="homeRightPart">
                     <Shortcut/>

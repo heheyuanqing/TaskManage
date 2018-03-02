@@ -9,7 +9,7 @@ router.post('/signin', (req, res) => {
     const psw = req.body.usrInfor.psw;
     let data = {};
     database.query(usrData.getUsrInfor,name,function (err, result) {
-       console.log(result);
+       // console.log(result);
         if (err) {
             console.log(err);
         }
@@ -21,8 +21,8 @@ router.post('/signin', (req, res) => {
             data.name = name;
             data.psw=psw;
             req.session.onlineUsr=data;
+            console.log(req.session);
             console.log('密码匹配成功！');
-            res.setHeader("token",name);
             res.json({state: 'SUCESS', type: '0'});
         }
         else {

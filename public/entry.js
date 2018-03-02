@@ -18,20 +18,21 @@ import Home from '../public/container/homePage';
 import ActorTaskPage from '../public/container/actorTaskPage';
 
 //创建store
-let store;
-/*const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup)(createStore);
-let store = createMiddlewareStore(reducers);*/
+const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)(createStore);
+let store = createMiddlewareStore(reducers);
+/*let store;
+
 if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
     store = createStore(
        reducers,
-        applyMiddleware(middlewareLogin,middlewareLogup)
+        applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)
     );
 }else{
     store = createStore(
      reducers,
-        compose(applyMiddleware(middlewareLogin,middlewareLogup),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+        compose(applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
-}
+}*/
 
 //设置路由
 render(

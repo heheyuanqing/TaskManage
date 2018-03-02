@@ -10,6 +10,10 @@ const mapStateToProps = (state) => {
     }
     // return state.allTasks?{allTasks: state.allTasks}:{allTasks:{}}
 };
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+    getInfor:()=>{
+        dispatch({type:'homeRequest'})
+    }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

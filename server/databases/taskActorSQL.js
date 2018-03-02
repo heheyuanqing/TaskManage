@@ -1,6 +1,6 @@
 const  taskActorSQL ={
-    getMyTasksName:'select taskName from taskActor where usrName=?',
-    getMyTasks:'select * from taskActor where usrName=?',
-    addActors:'insert into taskActor (usrName,taskName) values (?,?)'
+    getMyTasksName:'select taskName from taskActors where usrName=?',
+    getMyTasks:'select * from taskActors where usrName=?',
+    addActors:'insert into taskActors (usrName,taskName) values (?,?)'
 };
 module.exports=taskActorSQL;
