@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 
+function MyTask(props) {
+    return(
+        <div className="myTaskEntry">
+            <a href="#">{props.task.taskName}</a>
+    </div>)
+}
+
 class Shortcut extends Component {
     render() {
 
-        const {myRecentTasks} = this.props;
-
+        const myRecentTasks = this.props.tasks;
+        console.log(myRecentTasks);
         return (
             <div className="shortcut">
                 <div className="createEntry">
@@ -13,12 +20,13 @@ class Shortcut extends Component {
                 </div>
                 <div className="myTask">
                     <a href="#">我的任务</a>
-                    <ul className="mytaskList">
-                        {myRecentTasks?myRecentTasks.map((task) => {<li><a>{task.introduction}</a></li>}):"没有加入任务"}
-                    </ul>
+                    <div className="mytaskList">
+                        {myRecentTasks.length > 0 ? myRecentTasks.map((task, i) => <MyTask key={i} task={task}/>) : "没有加入任务"}
+                    </div>
                 </div>
             </div>
         )
     }
 }
+
 export default Shortcut;

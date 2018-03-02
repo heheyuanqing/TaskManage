@@ -14,8 +14,8 @@ class Task extends Component{
                     <p>{this.props.taskInfor.introduction}</p>
                 </div>
                 <div className="operation">
-                    <span>参与人数：5</span>
-                    <span>创建时间{this.props.taskInfor.establishTime}</span>
+                    <span className="actorNum">参与人数：5</span>
+                    <span>创建时间:{this.props.taskInfor.establishTime}</span>
                 </div>
             </div>
         )

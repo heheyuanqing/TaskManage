@@ -2,8 +2,9 @@
 
 export default (state={myTasks:[]},action)=>{
     if(action.type === 'showHome'){
-        const myTasks = action.allTasks.usrTask;
-        return Object.assign({},state.myTasks,myTasks)
+        const myTasks = action.infor.usrTasks;
+        // console.log(myTasks);
+        return Object.assign([],state.myTasks,myTasks)
     }
     return state;
 }

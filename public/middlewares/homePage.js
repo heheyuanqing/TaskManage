@@ -7,7 +7,7 @@ export default store => next => action => {
        3.获取当前用户参加的任务信息
     */
     if (action.type === 'homeRequest') {
-        request.get('/home')
+        request.get('/homePage')
             .end((err, res) => {
                 if (err) {
                     console.log(err);
@@ -20,9 +20,10 @@ export default store => next => action => {
                     }
                     else  if (data.state === 'FAIL') {
                         alert("请先登录账号！");
-                        window.location.href = '/signin';
-                    }
+                        window.location.href = '/signin'; }
+
                 }
             })
     }
+    else next(action);
 }

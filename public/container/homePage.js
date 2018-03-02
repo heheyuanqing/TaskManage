@@ -5,10 +5,9 @@ import {showNewestTask} from "../actions/actions";
 const mapStateToProps = (state) => {
 
     return {
-        online: state.onlineUsr,
-        allTasks: state.allTasks
+        allTasks: state.allTasks,
+        myTasks:state.myTasks
     }
-    // return state.allTasks?{allTasks: state.allTasks}:{allTasks:{}}
 };
 const mapDispatchToProps = (dispatch) => ({
     getInfor:()=>{

@@ -5,17 +5,16 @@ import '../style/home.css';
 
 class HomePage extends Component {
 
-   /* componentDidMount() {
+    componentWillMount() {
         this.props.getInfor();
     }
-*/
-    render() {
-        const {online, allTasks} = this.props;
 
+    render() {
+        const {allTasks,myTasks} = this.props;
         return (
             <div>
-                <Header usr={online}/>
-                <AllTasksList allTasks={allTasks}/>
+                <Header/>
+                <AllTasksList allTasks={allTasks} myTasks={myTasks}/>
             </div>
         )
     }

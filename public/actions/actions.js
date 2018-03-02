@@ -17,7 +17,3 @@ export const searchTasks = (keyWord)=>({
 });
 
 //显示首页
-export const showHome = (allTask)=>({
-    type:'showHome',
-    allTasks
-});

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import '../style/header.css';
 class Header extends Component{
     render(){
+
         const {clickSearch} = this.props;
 
         return(
@@ -11,7 +12,7 @@ class Header extends Component{
                 <button onClick={clickSearch}>搜索</button>
                 <div className="my">
                     <img src="./images/avatar.jpg" className="myAvatar"/>
-                    <span>{this.props.usr.name}</span>
+                    <span>{sessionStorage.getItem("name")}</span>
                 </div>
             </div>
         )

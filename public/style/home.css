@@ -42,15 +42,19 @@
 }
 
 .operation {
+    width: 800px;
     position: absolute;
-    bottom: -5px;
+    bottom: 5px;
+    margin-left:480px
 }
 
 .operation span {
     font-size: 15px;
-    margin-right: 420px;
 }
+.operation .actorNum{
+    margin-right: 15px;
 
+}
 .homeRightPart {
     width: 30%;
     height: 888px;
@@ -92,13 +96,16 @@
 }
 
 .shortcut a:hover {
-    color: #954121;
+    color: white;
 }
 
-.shortcut li {
+.shortcut .myTaskEntry {
     height: 40px;
     background-color: white;
     border: 1px solid;
     padding: 5px;
-    list-style: none;
+    font-size: 15px;
+}
+.shortcut .myTask :hover{
+    background-color: #408080;
 }

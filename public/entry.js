@@ -15,12 +15,13 @@ import middlewareActorTaskPage from '../public/middlewares/actorTaskPage';
 import Login from '../public/container/login';
 import Logup from '../public/container/logup';
 import Home from '../public/container/homePage';
+import Header from '../public/container/header';
 import ActorTaskPage from '../public/container/actorTaskPage';
 
 //创建store
-const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)(createStore);
-let store = createMiddlewareStore(reducers);
-/*let store;
+/*const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)(createStore);
+let store = createMiddlewareStore(reducers);*/
+let store;
 
 if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
     store = createStore(
@@ -32,7 +33,7 @@ if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)
      reducers,
         compose(applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
-}*/
+}
 
 //设置路由
 render(
