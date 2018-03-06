@@ -6,7 +6,6 @@ const taskData = require('../databases/taskSQL');
 const usrTask = require('../databases/taskActorSQL');
 
 router.get('/homePage', (req, res) => {
-    console.log("请求登录用户信息及其参加的任务以及所有任务");
     let all = {};
     if (req.session.onlineUsr === undefined) {
     res.json({state:"FAIL"});
@@ -38,7 +37,7 @@ router.get('/homePage', (req, res) => {
                 else {
                     all.usrTasks = tasksName;
                 }
-                console.log(all);
+                // console.log(all);
             }
             res.json({state:"SUCESS",all:all})
 

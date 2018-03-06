@@ -1,9 +1,10 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 
-class Task extends Component{
-    render(){
-    const {takePartIn}= this.props;
-        return(
+class Task extends Component {
+    render() {
+        const {takePartIn} = this.props;
+        // console.log(this.props);
+        return (
             <div className="task">
                 <div className="promulgator">
                     <img src='../images/avatar.jpg' alt="创建人头像"/>
@@ -11,6 +12,7 @@ class Task extends Component{
                     <button onClick={takePartIn}>加入</button>
                 </div>
                 <div className="introduction">
+                    <p>{this.props.taskInfor.taskName}</p>
                     <p>{this.props.taskInfor.introduction}</p>
                 </div>
                 <div className="operation">
@@ -21,4 +23,5 @@ class Task extends Component{
         )
     }
 }
+
 export default Task;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Task from "./task";
+// import Task from "./task";
+import Task from '../container/joinInTask';
 import Shortcut from "./shortcut";
 
 

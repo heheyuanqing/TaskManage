@@ -1,11 +1,16 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import '../style/header.css';
-class Header extends Component{
-    render(){
+import {searchTasks} from "../actions/actions";
+import propTypes from 'prop-types';
 
+class Header extends Component {
+    render() {
         const {clickSearch} = this.props;
+        console.log(this.props);
 
-        return(
+
+
+        return (
             <div className="header">
                 <span>干啥儿</span>
                 <input type="text" className="search" placeholder={"输入任务关键字/创建人"}/>
@@ -14,9 +19,9 @@ class Header extends Component{
                     <img src="./images/avatar.jpg" className="myAvatar"/>
                     <span>{sessionStorage.getItem("name")}</span>
                 </div>
-            </div>
-        )
+            </div>)
     }
 }
+
 
 export default Header;

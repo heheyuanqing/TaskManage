@@ -16,4 +16,8 @@ export const searchTasks = (keyWord)=>({
     keyWord
 });
 
-//显示首页
+//加入任务
+export const taskPartIn = (actor) =>({
+    type:'takePartIn',
+        actor
+});

@@ -1,19 +1,18 @@
 import {connect} from 'react-redux';
 import Task from '../component/task';
-import takePartIn from '../actions/actions';
+import {taskPartIn} from "../actions/actions";
 
-const mapStateToProps = ()=>{
-    return ;
+const mapStateToProps = (state)=>{
+    return {};
 };
 
 const mapDispatchToProps = (dispatch)=>({
-  return{
-      takePartIn:()=>{
-          const actorInfor ={
-              name:'从session中获取当前登录用户的信息'
-          };
-          dispatch(takePartIn(actorInfor));
+
+      takePartIn:(e)=>{
+          e.stopPropagation();
+        const taskInfor ={name: sessionStorage.getItem("name"),taskName:name};
+          dispatch(taskPartIn(taskInfor));
       }
-  }
+
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Task);

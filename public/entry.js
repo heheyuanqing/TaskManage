@@ -15,12 +15,13 @@ import middlewareActorTaskPage from '../public/middlewares/actorTaskPage';
 import Login from '../public/container/login';
 import Logup from '../public/container/logup';
 import Home from '../public/container/homePage';
-import Header from '../public/container/header';
+import joinInTask from '../public/container/joinInTask';
 import ActorTaskPage from '../public/container/actorTaskPage';
 
 //创建store
 /*const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)(createStore);
 let store = createMiddlewareStore(reducers);*/
+
 let store;
 
 if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
@@ -43,7 +44,7 @@ render(
                 <Route exact path='/' component={Login}/>
                 <Route path='/signin' component={Login}/>
                 <Route path='/signup' component={Logup}/>
-                <Route path='/home' component={Home}/>
+                <Route path='/home' component={Home} />
             </div>
         </BrowserRouter>
 

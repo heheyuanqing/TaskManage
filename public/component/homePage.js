@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import Header from "./header";
+// import Header from "./header";
 import AllTasksList from "./allTasksList";
 import '../style/home.css';
+import Header from '../container/header';
 
 class HomePage extends Component {
 
