@@ -2,17 +2,18 @@ import {connect} from 'react-redux';
 import Task from '../component/task';
 import {taskPartIn} from "../actions/actions";
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state) => {
     return {};
 };
 
-const mapDispatchToProps = (dispatch)=>({
+const mapDispatchToProps = (dispatch) => ({
 
-      takePartIn:(e)=>{
-          e.stopPropagation();
-        const taskInfor ={name: sessionStorage.getItem("name"),taskName:name};
-          dispatch(taskPartIn(taskInfor));
-      }
+    takePartIn: (e) => {
+        e.stopPropagation();
+        const id = e.target.parentElement.childNodes[2].id;
+        const taskInfor = {name: sessionStorage.getItem("name"), taskId:id};
+        dispatch(taskPartIn(taskInfor));
+    }
 
 });
-export default connect(mapStateToProps,mapDispatchToProps)(Task);
+export default connect(mapStateToProps, mapDispatchToProps)(Task);

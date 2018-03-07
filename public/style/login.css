@@ -20,10 +20,14 @@ body{
 }
 .input-group{
     width: 300px;
-    margin: 0 auto;
+    margin:0 auto;
+    margin-top: 60px;
 }
 .input{
     margin-top: 10px;
+}
+.input span{
+    position: relative;
 }
 .more a{
     text-decoration: none;

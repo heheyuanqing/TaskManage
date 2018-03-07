@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Header from './header';
+import Header from '../container/header';
 import TaskProcess from "./myTaskProcess";
 import Actors from "./taskActors";
 import '../style/myTaskPage.css';

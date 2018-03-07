@@ -8,7 +8,7 @@ router.post('/signin', (req, res) => {
     const name = req.body.usrInfor.name;
     const psw = req.body.usrInfor.psw;
     let data = {};
-    database.query(usrData.getUsrInfor,name,function (err, result) {
+    database.query(usrData.getUsr,name,function (err, result) {
        // console.log(result);
         if (err) {
             console.log(err);
@@ -17,7 +17,7 @@ router.post('/signin', (req, res) => {
             console.log('用户不存在');
             res.json({state: 'FAIL', type: '1'});
         }
-        else if (result[0].psw === psw) {
+        else if (result[0].user_pass === psw) {
             data.name = name;
             data.psw=psw;
             req.session.onlineUsr=data;

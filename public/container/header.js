@@ -13,5 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(searchTasks(keyWord[0].value))
     }
 });
-const clickT = connect(mapStateToProps,mapDispatchToProps)(Header);
-export default clickT;
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

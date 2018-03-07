@@ -1,7 +1,7 @@
-import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore,applyMiddleware,compose} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import reducers from './reducers/reducers';
 
@@ -15,8 +15,7 @@ import middlewareActorTaskPage from '../public/middlewares/actorTaskPage';
 import Login from '../public/container/login';
 import Logup from '../public/container/logup';
 import Home from '../public/container/homePage';
-import joinInTask from '../public/container/joinInTask';
-import ActorTaskPage from '../public/container/actorTaskPage';
+import TaskPage from '../public/container/actorTaskPage';
 
 //创建store
 /*const createMiddlewareStore=applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)(createStore);
@@ -24,15 +23,15 @@ let store = createMiddlewareStore(reducers);*/
 
 let store;
 
-if(!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)){
+if (!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)) {
     store = createStore(
-       reducers,
-        applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome)
+        reducers,
+        applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome)
     );
-}else{
+} else {
     store = createStore(
-     reducers,
-        compose(applyMiddleware(middlewareLogin,middlewareLogup,middlewareHome),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+        reducers,
+        compose(applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
 }
 
@@ -44,7 +43,8 @@ render(
                 <Route exact path='/' component={Login}/>
                 <Route path='/signin' component={Login}/>
                 <Route path='/signup' component={Logup}/>
-                <Route path='/home' component={Home} />
+                <Route path='/home' component={Home}/>
+                <Route path='/myTask' component={TaskPage}/>
             </div>
         </BrowserRouter>
 

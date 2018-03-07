@@ -28,7 +28,7 @@ body {
 }
 .header button{
     float: none;
-    margin-top: 0px;
+    margin-top: 10px;
 }
 
 .header .my {
@@ -42,7 +42,7 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
     position: relative;
 }
 

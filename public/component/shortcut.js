@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 function MyTask(props) {
     return(
         <div className="myTaskEntry">
-            <a href="#">{props.task.taskName}</a>
+            <a href="#">{props.task.task_name}</a>
     </div>)
 }
 

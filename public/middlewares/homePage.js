@@ -44,6 +44,7 @@ export default store => next => action => {
             })
     }
     if (action.type === 'takePartIn') {
+        console.log(action);
         console.log("加入任务");
         request.post('/takePartInTask')
             .send(action)
@@ -56,8 +57,11 @@ export default store => next => action => {
                     if (data.state === 'SUCESS') {
                         alert("加入任务成功");
                     }
-                    if (data.state === 'FAIL') {
+                    if (data.state === 'FAIL'&&data.type===1) {
                         alert("加入任务失败");
+                    }
+                    if(data.state ==='FAIL'&&data,type === 2){
+                        alert("您已加入任务")
                     }
 
                 }
