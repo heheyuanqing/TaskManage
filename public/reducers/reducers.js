@@ -5,5 +5,5 @@ import myTasks from './getMyTasks';
 export default combineReducers({
     onlineUsr,
     allTasks,
-    myTasks
+    myTasks,
 });

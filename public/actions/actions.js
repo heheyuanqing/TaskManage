@@ -10,11 +10,6 @@ export const signUp = (newUsr) => ({
     newUsr
 });
 
-//关键词搜索相关任务
-export const searchTasks = (keyWord)=>({
-    type:'searchTasks',
-    keyWord
-});
 
 //加入任务
 export const taskPartIn = (actor) =>({

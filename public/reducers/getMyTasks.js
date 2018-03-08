@@ -6,5 +6,10 @@ export default (state={myTasks:[]},action)=>{
         // console.log(myTasks);
         return Object.assign([],state.myTasks,myTasks)
     }
+    if(action.type === 'showResult'){
+        let myTasks =localStorage.getItem(sessionStorage.getItem("name"));
+        myTasks=JSON.parse(myTasks);
+        return Object.assign([],state.myTasks,myTasks)
+    }
     return state;
 }

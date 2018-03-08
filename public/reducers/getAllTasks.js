@@ -6,6 +6,11 @@ export default (state = {allTasks: []}, action) => {
 
         return Object.assign([], state.allTasks, allTasks)
     }
+    if(action.type==='showResult'){
+        console.log(action);
+        const result = action.result;
+        return Object.assign([],state.result,result);
+    }
 
     return state;
 }

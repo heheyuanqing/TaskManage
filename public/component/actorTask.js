@@ -5,6 +5,10 @@ import Actors from "./taskActors";
 import '../style/myTaskPage.css';
 
 class ActorPage extends Component{
+    componentWillMount(){
+
+    }
+
     render(){
         return(
             <div>

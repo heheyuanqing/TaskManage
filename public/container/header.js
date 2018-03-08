@@ -1,6 +1,5 @@
 import {connect} from 'react-redux';
 import Header from '../component/header';
-import {searchTasks} from '../actions/actions';
 
 const mapStateToProps = (state) => {
     return {};
@@ -8,9 +7,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
     clickSearch: (e) => {
+        e.stopPropagation();
         const keyWord = document.getElementsByTagName('input');
-        // console.log(keyWord[0].value);
-        dispatch(searchTasks(keyWord[0].value))
+        if(localStorage.getItem("keyWord")!==null){
+            localStorage.clear();
+        }
+        localStorage.setItem("keyWord",keyWord[0].value);
+        dispatch({type:'searchTasks'});
     }
 });
 export default connect(mapStateToProps,mapDispatchToProps)(Header);

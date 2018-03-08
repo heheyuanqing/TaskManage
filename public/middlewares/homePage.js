@@ -11,6 +11,7 @@ export default store => next => action => {
         request.get('/homePage')
             .end((err, res) => {
                 if (err) {
+                    console.log("请求登录用户和所有任务信息出错");
                     console.log(err);
                 }
                 else {
@@ -27,22 +28,11 @@ export default store => next => action => {
                 }
             })
     }
-    if (action.type === 'searchTasks') {
-        console.log("根据关键词搜索任务信息");
-        request.get('/searchResult')
-            .query(action)
-            .end((err, res) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    const data = JSON.parse(res.text);
-                    /*跳转组件至搜索页*/
-                    next({type: 'showResult', result: data.result});
 
-                }
-            })
-    }
+
+    /*
+        请求加入任务
+    */
     if (action.type === 'takePartIn') {
         console.log(action);
         console.log("加入任务");
@@ -50,6 +40,7 @@ export default store => next => action => {
             .send(action)
             .end((err, res) => {
                 if (err) {
+                    console.log("请求加入任务出错");
                     console.log(err);
                 }
                 else {
@@ -60,12 +51,13 @@ export default store => next => action => {
                     if (data.state === 'FAIL'&&data.type===1) {
                         alert("加入任务失败");
                     }
-                    if(data.state ==='FAIL'&&data,type === 2){
+                    if(data.state ==='FAIL'&&data.type === 2){
                         alert("您已加入任务")
                     }
 
                 }
             })
     }
+
     else next(action);
 }

@@ -3,12 +3,12 @@ const express = require('express');
 const router = express.Router();
 const database = require('../databases/connect');
 const usrTask = require('../databases/processSQL');
-const taskData = require('../databases/taskSQL');
+// const taskData = require('../databases/taskSQL');
 
 router.post('/takePartInTask', (req, res) => {
     const actor = req.body.actor;
-    console.log(actor);
-  /*  database.query(usrTask.getMyTasksId,actor.name,(err,exit)=>{
+    // console.log(actor);
+    database.query(usrTask.getMyTasksId,actor.name,(err,exit)=>{
         if(err){
             console.log(err);
         }
@@ -29,8 +29,8 @@ router.post('/takePartInTask', (req, res) => {
             }
         }
 
-    });*/
-    database.query(usrTask.addActor, [actor.taskId, actor.name], (err) => {
+    });
+  /*  database.query(usrTask.addActor, [actor.taskId, actor.name], (err) => {
         if (err) {
             console.log(err);
             res.json({state: 'FAIL', type: 1});
@@ -38,7 +38,7 @@ router.post('/takePartInTask', (req, res) => {
         else {
             res.json({state: 'SUCESS', type: 0});
         }
-    });
+    });*/
 
 
 });

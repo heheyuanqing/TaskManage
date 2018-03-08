@@ -25,7 +25,6 @@ class Logup extends Component{
                         <input type="password"/>
                     </div>
                     <div>
-                        {/*<input type="button" value="注册"  onClick={clickLogUp}/>*/}
                         <button onClick={clickLogUp}>注册</button>
                     </div>
                 </div>

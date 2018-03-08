@@ -9,12 +9,14 @@ import reducers from './reducers/reducers';
 import middlewareLogin from '../public/middlewares/login';
 import middlewareLogup from '../public/middlewares/logup';
 import middlewareHome from '../public/middlewares/homePage';
+import middlewareResult from '../public/middlewares/header';
 import middlewareActorTaskPage from '../public/middlewares/actorTaskPage';
 
 //引入组件
 import Login from '../public/container/login';
 import Logup from '../public/container/logup';
 import Home from '../public/container/homePage';
+import ResultPage from '../public/container/result';
 import TaskPage from '../public/container/actorTaskPage';
 
 //创建store
@@ -26,12 +28,12 @@ let store;
 if (!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)) {
     store = createStore(
         reducers,
-        applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome)
+        applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult)
     );
 } else {
     store = createStore(
         reducers,
-        compose(applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+        compose(applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
 }
 
@@ -44,6 +46,7 @@ render(
                 <Route path='/signin' component={Login}/>
                 <Route path='/signup' component={Logup}/>
                 <Route path='/home' component={Home}/>
+                <Route path='/result' component={ResultPage}/>
                 <Route path='/myTask' component={TaskPage}/>
             </div>
         </BrowserRouter>

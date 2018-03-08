@@ -13,6 +13,7 @@ const logup = require('./server/routers/logup');
 const home = require('./server/routers/home');
 const searchTasks = require('./server/routers/searchTasks');
 const takePartInTasks =  require('./server/routers/takePartInTasks');
+const processTask = require('./server/routers/processTask');
 
 const db={
     host:'localhost',
@@ -47,6 +48,7 @@ app.use('/',logup);
 app.use('/',home);
 app.use('/',searchTasks);
 app.use('/',takePartInTasks);
+app.use('/',processTask);
 
 app.get('*',function (req,res) {
     res.sendFile(path.resolve(__dirname,'public','root.html'));
