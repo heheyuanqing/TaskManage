@@ -13,7 +13,7 @@ router.get('/homePage', (req, res) => {
         res.json({state: "FAIL"});
     }
     else {
-        /* all.usr = req.session.onlineUsr.name;
+         all.usr = req.session.onlineUsr.name;
          //获取所有的任务
          database.query(taskData.getAllTasks, function (err, allTasks) {
              if (err) {
@@ -53,14 +53,11 @@ router.get('/homePage', (req, res) => {
 
                  }
              }
-         });*/
+         });
 
 //串行操作
-        function AsyncSeries(callback) {
+      /*  function AsyncSeries(callback) {
             async.series({
-                usr: function (callback) {
-                    callback(null, req.session.onlineUsr.name);
-                },
                 tasks: function (callback) {
                     let task = [];
                     database.query(taskData.getAllTasks, function (err, allTasks) {
@@ -71,12 +68,15 @@ router.get('/homePage', (req, res) => {
                             if (allTasks.length !== 0) {
                                 task = allTasks;
                             }
+                            console.log("task:");
+                            console.log(task);
+                            callback(null, task);
+
                         }
-                        callback(null, task);
                     });
                 },
                 usrTasks: function (callback) {
-                    let usrTas = [];
+                    let usrTasks = [];
                     const user = req.session.onlineUsr.name;
                     database.query(usrTask.getMyTasksId, user, (err, tasksId) => {
                         if (err) {
@@ -90,12 +90,18 @@ router.get('/homePage', (req, res) => {
                                             console.log(err);
                                         }
                                         else {
-                                            usrTas.push({task_name: taskName[0].task_name});
+                                            usrTasks.push({task_name: taskName[0].task_name});
                                         }
+                                        console.log("usrTask:");
+                                        console.log(usrTasks);
+
                                     });
+
                                 });
+                                callback(null, usrTask);
+
                             }
-                            callback(null, usrTask);
+
                         }
                     });
                 }
@@ -110,7 +116,7 @@ router.get('/homePage', (req, res) => {
                 console.log(all);
                 res.json({state: "SUCESS", all: all});
             }
-        })
+        })*/
 
     }
 });

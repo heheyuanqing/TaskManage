@@ -16,7 +16,7 @@ export default store => next => action => {
                 }
                 else{
                     const data = JSON.parse(res.text);
-                    next({type:'showProcess',data:data});
+                    next({type:'showProcess',data:data.process});
                 }
             });
     }

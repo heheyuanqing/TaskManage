@@ -5,10 +5,15 @@ export default class Actors extends Component{
         return(
             <div className="allTAskActors">
              <ul>
-                 <li className="actors">
-                     <img src="./images/avatar.jpg" alt=""/>
-                     <span>heheyuanqing</span>
-                 </li>
+                 {this.props.actor.map((per)=>{
+                     return(
+                         <li className="actors">
+                             <img src="./images/avatar.jpg" alt=""/>
+                             <span>{per.user_no}</span>
+                         </li>
+                     );
+                 })}
+
              </ul>
             </div>
         )
