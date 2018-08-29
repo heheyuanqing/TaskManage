@@ -5,8 +5,10 @@ const database = require('../databases/connect');
 const usrData = require('../databases/usrSQL');
 
 router.post('/signin', (req, res) => {
-    const name = req.body.usrInfor.name;
-    const psw = req.body.usrInfor.psw;
+   /* const name = req.body.usrInfor.name;
+    const psw = req.body.usrInfor.psw;*/
+    const name = req.body.name;
+    const psw = req.body.psw;
     let data = {};
     database.query(usrData.getUsr,name,function (err, result) {
        // console.log(result);
@@ -20,8 +22,9 @@ router.post('/signin', (req, res) => {
         else if (result[0].user_pass === psw) {
             data.name = name;
             data.psw=psw;
-            req.session.onlineUsr=data;
+           req.session.onlineUsr=data;
             console.log(req.session);
+
             console.log('密码匹配成功！');
             res.json({state: 'SUCESS', type: '0'});
         }

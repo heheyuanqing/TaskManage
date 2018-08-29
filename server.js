@@ -54,6 +54,6 @@ app.get('*',function (req,res) {
     res.sendFile(path.resolve(__dirname,'public','root.html'));
 });
 
-app.listen(8080,()=>{
-    console.log("sever start in 8080");
+app.listen(8000,()=>{
+    console.log("sever start in 8000");
 });

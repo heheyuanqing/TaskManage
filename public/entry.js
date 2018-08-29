@@ -2,6 +2,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import React from 'react';
 import {render} from 'react-dom';
 import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import reducers from './reducers/reducers';
 
@@ -28,12 +29,12 @@ let store;
 if (!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)) {
     store = createStore(
         reducers,
-        applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult)
+        applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult,thunk)
     );
 } else {
     store = createStore(
         reducers,
-        compose(applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+        compose(applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult,thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
 }
 
