@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 
 class Task extends Component {
 
-  /*  componentDidMount() {
-        const name=this.props.taskInfor.task_name,
-        id = this.props.taskInfor.task_id;
-        localStorage.setItem(name, id);
-    }*/
-
     render() {
         const {takePartIn} = this.props;
         return (

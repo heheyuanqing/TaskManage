@@ -485,7 +485,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.connect = exports.connectAdvanced = exports.createProvider = exports.Provider = undefined;
 
-var _Provider = __webpack_require__(110);
+var _Provider = __webpack_require__(111);
 
 var _Provider2 = _interopRequireDefault(_Provider);
 
@@ -493,7 +493,7 @@ var _connectAdvanced = __webpack_require__(49);
 
 var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 
-var _connect = __webpack_require__(114);
+var _connect = __webpack_require__(115);
 
 var _connect2 = _interopRequireDefault(_connect);
 
@@ -808,11 +808,11 @@ if (typeof window !== 'undefined') {
   root = undefined;
 }
 
-var Emitter = __webpack_require__(126);
-var RequestBase = __webpack_require__(127);
+var Emitter = __webpack_require__(127);
+var RequestBase = __webpack_require__(128);
 var isObject = __webpack_require__(52);
-var ResponseBase = __webpack_require__(128);
-var Agent = __webpack_require__(130);
+var ResponseBase = __webpack_require__(129);
+var Agent = __webpack_require__(131);
 
 /**
  * Noop.
@@ -1993,11 +1993,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(111)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(112)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(112)();
+  module.exports = __webpack_require__(113)();
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
@@ -2150,7 +2150,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(137);
+var	fixUrls = __webpack_require__(138);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -3191,7 +3191,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _header = __webpack_require__(146);
+var _header = __webpack_require__(147);
 
 var _header2 = _interopRequireDefault(_header);
 
@@ -4866,7 +4866,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _react = __webpack_require__(0);
 
-var _Subscription = __webpack_require__(113);
+var _Subscription = __webpack_require__(114);
 
 var _Subscription2 = _interopRequireDefault(_Subscription);
 
@@ -5333,7 +5333,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _login = __webpack_require__(135);
+var _login = __webpack_require__(136);
 
 var _login2 = _interopRequireDefault(_login);
 
@@ -5398,7 +5398,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(136);
+var content = __webpack_require__(137);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -5460,11 +5460,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _joinInTask = __webpack_require__(142);
+var _joinInTask = __webpack_require__(143);
 
 var _joinInTask2 = _interopRequireDefault(_joinInTask);
 
-var _shortcut = __webpack_require__(144);
+var _shortcut = __webpack_require__(145);
 
 var _shortcut2 = _interopRequireDefault(_shortcut);
 
@@ -5521,7 +5521,7 @@ exports.default = AllTasksList;
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(145);
+var content = __webpack_require__(146);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -5583,33 +5583,33 @@ var _reactDom = __webpack_require__(87);
 
 var _redux = __webpack_require__(27);
 
-var _reduxThunk = __webpack_require__(157);
+var _reduxThunk = __webpack_require__(110);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
 var _reactRedux = __webpack_require__(6);
 
-var _reducers = __webpack_require__(121);
+var _reducers = __webpack_require__(122);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
-var _login = __webpack_require__(125);
+var _login = __webpack_require__(126);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _logup = __webpack_require__(131);
+var _logup = __webpack_require__(132);
 
 var _logup2 = _interopRequireDefault(_logup);
 
-var _homePage = __webpack_require__(132);
+var _homePage = __webpack_require__(133);
 
 var _homePage2 = _interopRequireDefault(_homePage);
 
-var _header = __webpack_require__(133);
+var _header = __webpack_require__(134);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _actorTaskPage = __webpack_require__(134);
+var _actorTaskPage = __webpack_require__(135);
 
 var _actorTaskPage2 = _interopRequireDefault(_actorTaskPage);
 
@@ -5617,19 +5617,19 @@ var _login3 = __webpack_require__(53);
 
 var _login4 = _interopRequireDefault(_login3);
 
-var _logup3 = __webpack_require__(138);
+var _logup3 = __webpack_require__(139);
 
 var _logup4 = _interopRequireDefault(_logup3);
 
-var _homePage3 = __webpack_require__(140);
+var _homePage3 = __webpack_require__(141);
 
 var _homePage4 = _interopRequireDefault(_homePage3);
 
-var _result = __webpack_require__(149);
+var _result = __webpack_require__(150);
 
 var _result2 = _interopRequireDefault(_result);
 
-var _actorTaskPage3 = __webpack_require__(151);
+var _actorTaskPage3 = __webpack_require__(152);
 
 var _actorTaskPage4 = _interopRequireDefault(_actorTaskPage3);
 
@@ -5646,9 +5646,9 @@ var store = void 0;
 
 
 if (!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)) {
-    store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_login2.default, _logup2.default, _homePage2.default, _header2.default, _reduxThunk2.default));
+    store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_logup2.default, _homePage2.default, _header2.default, _reduxThunk2.default));
 } else {
-    store = (0, _redux.createStore)(_reducers2.default, (0, _redux.compose)((0, _redux.applyMiddleware)(_login2.default, _logup2.default, _homePage2.default, _header2.default, _reduxThunk2.default), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+    store = (0, _redux.createStore)(_reducers2.default, (0, _redux.compose)((0, _redux.applyMiddleware)(_logup2.default, _homePage2.default, _header2.default, _reduxThunk2.default), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
 }
 
@@ -16268,6 +16268,37 @@ function applyMiddleware() {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function createThunkMiddleware(extraArgument) {
+  return function (_ref) {
+    var dispatch = _ref.dispatch,
+        getState = _ref.getState;
+    return function (next) {
+      return function (action) {
+        if (typeof action === 'function') {
+          return action(dispatch, getState, extraArgument);
+        }
+
+        return next(action);
+      };
+    };
+  };
+}
+
+var thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;
+
+exports.default = thunk;
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -16374,7 +16405,7 @@ exports.default = createProvider();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16899,7 +16930,7 @@ module.exports = function (isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16958,7 +16989,7 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17065,7 +17096,7 @@ var Subscription = function () {
 exports.default = Subscription;
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17083,23 +17114,23 @@ var _connectAdvanced = __webpack_require__(49);
 
 var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
 
-var _shallowEqual = __webpack_require__(115);
+var _shallowEqual = __webpack_require__(116);
 
 var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-var _mapDispatchToProps = __webpack_require__(116);
+var _mapDispatchToProps = __webpack_require__(117);
 
 var _mapDispatchToProps2 = _interopRequireDefault(_mapDispatchToProps);
 
-var _mapStateToProps = __webpack_require__(117);
+var _mapStateToProps = __webpack_require__(118);
 
 var _mapStateToProps2 = _interopRequireDefault(_mapStateToProps);
 
-var _mergeProps = __webpack_require__(118);
+var _mergeProps = __webpack_require__(119);
 
 var _mergeProps2 = _interopRequireDefault(_mergeProps);
 
-var _selectorFactory = __webpack_require__(119);
+var _selectorFactory = __webpack_require__(120);
 
 var _selectorFactory2 = _interopRequireDefault(_selectorFactory);
 
@@ -17215,7 +17246,7 @@ function createConnect() {
 exports.default = createConnect();
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17260,7 +17291,7 @@ function shallowEqual(objA, objB) {
 }
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17299,7 +17330,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17326,7 +17357,7 @@ function whenMapStateToPropsIsMissing(mapStateToProps) {
 exports.default = [whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing];
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17400,7 +17431,7 @@ exports.default = [whenMergePropsIsFunction, whenMergePropsIsOmitted];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17413,7 +17444,7 @@ exports.impureFinalPropsSelectorFactory = impureFinalPropsSelectorFactory;
 exports.pureFinalPropsSelectorFactory = pureFinalPropsSelectorFactory;
 exports.default = finalPropsSelectorFactory;
 
-var _verifySubselectors = __webpack_require__(120);
+var _verifySubselectors = __webpack_require__(121);
 
 var _verifySubselectors2 = _interopRequireDefault(_verifySubselectors);
 
@@ -17526,7 +17557,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17560,7 +17591,7 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 }
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17572,15 +17603,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(27);
 
-var _getOnlineUsr = __webpack_require__(122);
+var _getOnlineUsr = __webpack_require__(123);
 
 var _getOnlineUsr2 = _interopRequireDefault(_getOnlineUsr);
 
-var _getAllTasks = __webpack_require__(123);
+var _getAllTasks = __webpack_require__(124);
 
 var _getAllTasks2 = _interopRequireDefault(_getAllTasks);
 
-var _getMyTasks = __webpack_require__(124);
+var _getMyTasks = __webpack_require__(125);
 
 var _getMyTasks2 = _interopRequireDefault(_getMyTasks);
 
@@ -17593,7 +17624,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17622,7 +17653,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17653,7 +17684,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17683,7 +17714,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17732,7 +17763,7 @@ exports.default = function (store) {
 };
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17897,7 +17928,7 @@ Emitter.prototype.hasListeners = function (event) {
 };
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18595,7 +18626,7 @@ RequestBase.prototype._setTimeouts = function () {
 };
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18605,7 +18636,7 @@ RequestBase.prototype._setTimeouts = function () {
  * Module dependencies.
  */
 
-var utils = __webpack_require__(129);
+var utils = __webpack_require__(130);
 
 /**
  * Expose `ResponseBase`.
@@ -18733,7 +18764,7 @@ ResponseBase.prototype._setStatusProperties = function (status) {
 };
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18810,7 +18841,7 @@ exports.cleanHeader = function (header, changesOrigin) {
 };
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18837,7 +18868,7 @@ Agent.prototype._setDefaults = function (req) {
 module.exports = Agent;
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18882,7 +18913,7 @@ exports.default = function (store) {
 };
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18954,7 +18985,7 @@ exports.default = function (store) {
 };
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18995,7 +19026,7 @@ exports.default = function (store) {
 };
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19037,7 +19068,7 @@ exports.default = function (store) {
 };
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19155,7 +19186,7 @@ var Login = function (_Component) {
 exports.default = Login;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(17)(false);
@@ -19169,7 +19200,7 @@ exports.push([module.i, "body{\n    background-color: #408080;\n}\n.loginContain
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19264,7 +19295,7 @@ module.exports = function (css) {
 };
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19276,7 +19307,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _logup = __webpack_require__(139);
+var _logup = __webpack_require__(140);
 
 var _logup2 = _interopRequireDefault(_logup);
 
@@ -19314,7 +19345,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_logup2.default);
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19427,7 +19458,7 @@ Logup.propTypes = {
 exports.default = Logup;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19439,7 +19470,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _homePage = __webpack_require__(141);
+var _homePage = __webpack_require__(142);
 
 var _homePage2 = _interopRequireDefault(_homePage);
 
@@ -19463,7 +19494,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_homePage2.default);
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19545,7 +19576,7 @@ var HomePage = function (_Component) {
 exports.default = HomePage;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19557,7 +19588,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _task = __webpack_require__(143);
+var _task = __webpack_require__(144);
 
 var _task2 = _interopRequireDefault(_task);
 
@@ -19585,7 +19616,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_task2.default);
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19692,7 +19723,7 @@ var Task = function (_Component) {
 exports.default = Task;
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19786,7 +19817,7 @@ var Shortcut = function (_Component) {
 exports.default = Shortcut;
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(17)(false);
@@ -19800,7 +19831,7 @@ exports.push([module.i, ".homeLeftPart {\n    width: 70%;\n    background-color:
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19816,7 +19847,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(147);
+__webpack_require__(148);
 
 var _propTypes = __webpack_require__(16);
 
@@ -19879,11 +19910,11 @@ var Header = function (_Component) {
 exports.default = Header;
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(148);
+var content = __webpack_require__(149);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -19929,7 +19960,7 @@ if(false) {
 }
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(17)(false);
@@ -19943,7 +19974,7 @@ exports.push([module.i, "body {\n    padding: 0;\n    margin: 0;\n    background
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19955,7 +19986,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _result = __webpack_require__(150);
+var _result = __webpack_require__(151);
 
 var _result2 = _interopRequireDefault(_result);
 
@@ -19979,7 +20010,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_result2.default);
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20049,7 +20080,7 @@ var ResultPage = function (_Component) {
 exports.default = ResultPage;
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20061,7 +20092,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(6);
 
-var _actorTask = __webpack_require__(152);
+var _actorTask = __webpack_require__(153);
 
 var _actorTask2 = _interopRequireDefault(_actorTask);
 
@@ -20091,7 +20122,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_actorTask2.default);
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20111,15 +20142,15 @@ var _header = __webpack_require__(31);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _myTaskProcess = __webpack_require__(153);
+var _myTaskProcess = __webpack_require__(154);
 
 var _myTaskProcess2 = _interopRequireDefault(_myTaskProcess);
 
-var _taskActors = __webpack_require__(154);
+var _taskActors = __webpack_require__(155);
 
 var _taskActors2 = _interopRequireDefault(_taskActors);
 
-__webpack_require__(155);
+__webpack_require__(156);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20167,7 +20198,7 @@ var ActorPage = function (_Component) {
 exports.default = ActorPage;
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20289,7 +20320,7 @@ var TaskProcess = function (_Component) {
 exports.default = TaskProcess;
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20355,11 +20386,11 @@ var Actors = function (_Component) {
 exports.default = Actors;
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(156);
+var content = __webpack_require__(157);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -20405,7 +20436,7 @@ if(false) {
 }
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(17)(false);
@@ -20417,37 +20448,6 @@ exports.push([module.i, "img{\n    width: 50px;\n    height: 50px;\n    border-r
 
 // exports
 
-
-/***/ }),
-/* 157 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-function createThunkMiddleware(extraArgument) {
-  return function (_ref) {
-    var dispatch = _ref.dispatch,
-        getState = _ref.getState;
-    return function (next) {
-      return function (action) {
-        if (typeof action === 'function') {
-          return action(dispatch, getState, extraArgument);
-        }
-
-        return next(action);
-      };
-    };
-  };
-}
-
-var thunk = createThunkMiddleware();
-thunk.withExtraArgument = createThunkMiddleware;
-
-exports.default = thunk;
 
 /***/ })
 /******/ ]);

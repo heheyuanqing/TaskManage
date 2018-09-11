@@ -1,6 +1,5 @@
 import {connect} from 'react-redux';
 import Login from '../component/login';
-import {signIn} from "../actions/actions";
 import request from "superagent";
 
 const mapStateToProps = (state) => {
@@ -16,7 +15,6 @@ const mapDispatchToProps = (dispatch) => ({
             name: loginUsr[0].value,
             psw: loginUsr[1].value
         };
-        // dispatch(signIn(usrInfor));
         dispatch(function (dispatch){
             request.post('/signin')
                 .send(usrInfor)
@@ -24,9 +22,8 @@ const mapDispatchToProps = (dispatch) => ({
                     if (err)
                         console.log(err);
                     else {
-                        // console.log(res);
                         const data = JSON.parse(res.text);
-                        console.log(data);
+                        // console.log(data);
                         if (data.state === 'SUCESS' && data.type === '0') {
                             window.location.href = '/home';//跳转到主页的组件
                             console.log('登录成功');
@@ -43,9 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
     },
     clickSignUp: (e) => {
         e.stopPropagation();
-        // dispatch({type:'createNewUsr'});
         dispatch(function (dispatch){
-            // console.log(action);
             window.location.href = '/signup';
         })
     }

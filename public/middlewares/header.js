@@ -1,7 +1,11 @@
 import request from 'superagent';
 
 export default store => next => action => {
-
+    /*
+    * 1.发送请求关键字
+    * 2.返回搜索结果
+    * 3.将搜索记录进行保存
+    * */
     if(action.type === 'searchTasks'){
         window.location.href='/result';
     }

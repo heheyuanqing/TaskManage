@@ -11,7 +11,6 @@ export default store => next => action => {
                 }
                 else {
                     const data = JSON.parse(res.text);
-                    // console.log(data);
                     if (data.state === 'SUCESS' && data.type === '0') {
                         alert('注册成功！');
                         window.location.href = '/signin';

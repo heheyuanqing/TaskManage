@@ -5,7 +5,6 @@ import propTypes from 'prop-types';
 class Header extends Component {
     render() {
         const {clickSearch} = this.props;
-        // console.log(this.props);
         return (
             <div className="header">
                 <span>干啥儿</span>

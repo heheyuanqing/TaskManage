@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import reducers from './reducers/reducers';
 
 //引入中间件文件
-import middlewareLogin from '../public/middlewares/login';
+// import middlewareLogin from '../public/middlewares/login';
 import middlewareLogup from '../public/middlewares/logup';
 import middlewareHome from '../public/middlewares/homePage';
 import middlewareResult from '../public/middlewares/header';
@@ -29,12 +29,12 @@ let store;
 if (!(window.__REDUX_DEVTOOLS_EXTENSION__ || window.__REDUX_DEVTOOLS_EXTENSION__)) {
     store = createStore(
         reducers,
-        applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult,thunk)
+        applyMiddleware( middlewareLogup, middlewareHome, middlewareResult,thunk)
     );
 } else {
     store = createStore(
         reducers,
-        compose(applyMiddleware(middlewareLogin, middlewareLogup, middlewareHome, middlewareResult,thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
+        compose(applyMiddleware( middlewareLogup, middlewareHome, middlewareResult,thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
     );
 }
 

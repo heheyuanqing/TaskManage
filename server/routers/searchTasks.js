@@ -18,6 +18,12 @@ router.get('/searchResult', (req, res) => {
                     result.push(task);
                 }
             });
+            if(!req.session.search){
+                req.session.search=[];
+            }else{
+                req.session.search.push(keyWord);
+            }
+
             console.log(result);
             res.json({result:result});
         }

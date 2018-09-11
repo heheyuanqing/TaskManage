@@ -11,7 +11,6 @@ const mapDispatchToProps = (dispatch) => ({
     takePartIn: (e) => {
         e.stopPropagation();
         const id = e.target.parentElement.childNodes[2].id;
-        // console.log(id);
         const taskInfor = {name: sessionStorage.getItem("name"), taskId:id};
         dispatch(taskPartIn(taskInfor));
     }

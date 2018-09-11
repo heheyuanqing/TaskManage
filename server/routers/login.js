@@ -5,13 +5,10 @@ const database = require('../databases/connect');
 const usrData = require('../databases/usrSQL');
 
 router.post('/signin', (req, res) => {
-   /* const name = req.body.usrInfor.name;
-    const psw = req.body.usrInfor.psw;*/
     const name = req.body.name;
     const psw = req.body.psw;
     let data = {};
     database.query(usrData.getUsr,name,function (err, result) {
-       // console.log(result);
         if (err) {
             console.log(err);
         }
